@@ -1,7 +1,0 @@
-package br.edu.infnet.claudiodepreciationapi.model.domain;
-
-public enum FuelType {
-	
-	
-
-}

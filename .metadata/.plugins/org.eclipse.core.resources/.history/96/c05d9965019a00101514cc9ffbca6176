@@ -1,8 +1,0 @@
-package br.edu.infnet.claudiodepreciationapi.model.service;
-
-import org.springframework.stereotype.Service;
-
-@Service
-public class TruckFipeService {
-
-}
