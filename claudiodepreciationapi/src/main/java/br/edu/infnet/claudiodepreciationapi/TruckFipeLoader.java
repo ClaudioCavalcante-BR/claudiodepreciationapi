@@ -1,0 +1,44 @@
+package br.edu.infnet.claudiodepreciationapi;
+
+
+
+import org.springframework.boot.ApplicationArguments;
+import org.springframework.boot.ApplicationRunner;
+import org.springframework.stereotype.Component;
+
+import br.edu.infnet.claudiodepreciationapi.model.domain.TruckQueryResult;
+import br.edu.infnet.claudiodepreciationapi.model.service.TruckFipeService;
+
+@Component
+public class TruckFipeLoader implements ApplicationRunner {
+	
+	private final TruckFipeService truckFipeService;
+
+    public TruckFipeLoader(TruckFipeService truckFipeService) {
+        this.truckFipeService = truckFipeService;
+    }
+
+
+    @Override
+    public void run(ApplicationArguments args) throws Exception {
+        // exemplo: Mercedes-Benz (109), modelo 9674, ano 2023-3
+        TruckQueryResult result = truckFipeService.consultarPorMarcaModeloAno(109, 9674, "2021-3");
+
+        System.out.println("[RESULTADO] Código FIPE: " + result.getCodigoFipe());
+        System.out.println("[RESULTADO] Marca: " + result.getMarca());
+        System.out.println("[RESULTADO] Modelo: " + result.getModelo());
+        System.out.println("[RESULTADO] Ano Modelo: " + result.getAnoModelo());
+        System.out.println("[RESULTADO] Valor: " + result.getValor());
+        System.out.println("[RESULTADO] Data da Consulta: " + result.getDataConsulta());
+        
+        if (result.getOutrasMarcas() != null) {
+            System.out.println("[RESULTADO] Outras opções:");
+            result.getOutrasMarcas().forEach(opt -> 
+                System.out.println(" - " + opt.getMarca() + " " + opt.getModelo() + " (" + opt.getAnoModelo() + ")")
+            );
+        }
+    }
+
+
+	
+}

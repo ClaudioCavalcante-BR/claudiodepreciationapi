@@ -1,0 +1,29 @@
+# Build directory
+/target/
+
+# Log files
+*.log
+
+# Eclipse specific files
+.project
+.classpath
+.settings/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# VS Code
+.vscode/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.swp

@@ -1,0 +1,16 @@
+package br.edu.infnet.claudiodepreciationapi.model.clients;
+
+import java.util.List;
+
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import br.edu.infnet.claudiodepreciationapi.model.domain.BrasilApiFipePrice;
+
+@FeignClient(name = "brasilapi", url = "${api.brasilapi.url}/api/fipe")
+public interface BrasilApiFipeFeignClient {
+	
+	@GetMapping("/preco/v1/{codigoFipe}")
+    List<BrasilApiFipePrice> consultarPreco(@PathVariable String codigoFipe);
+}

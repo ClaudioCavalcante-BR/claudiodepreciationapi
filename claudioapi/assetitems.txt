@@ -1,0 +1,65 @@
+AL-2133;Group01-Caminhoes de Carga Pesada Rodoviaria;Caminhao;510000.00;10221000-KL
+AC-2124;Group02-Caminhoes de Carga Semipesada;Caminhao;850000.00;11220000-AX
+AM-2134;Group03-Caminhoes de Carretas e Reboques;Caminhao;200000.00;11332000-MN
+AN-2135;Group04-Caminhoes Basculantes de Obra;Caminhao;100000.00;12443000-OP
+BL-2160;Group05-Caminhoes Betoneira (Concreto);Caminhao;460000.00;12443000-OP
+AO-2136;Group06-Caminhoes Tanque (Combustivel/agua);Caminhao;890000.00;13554000-QR
+BL-2161;Group07-Caminhoes Guincho/Reboque;Caminhao;510000.00;13554000-QR
+AP-2137;Group08-Caminhoes de Carreta Prancha (Maquinas);Caminhao;340000.00;14665000-ST
+BL-2162;Group09-Caminhoes Frigorificos (Refrigerados);Caminhao;200000.00;14665000-ST
+AQ-2138;Group10-Caminhoes Cegonha (Transporte de Veiculos);Caminhao;480000.00;15776000-UV
+BL-2163;Group11-Caminhoes de Frota Leve;Caminhao;100000.00;15776000-UV
+AR-2139;Group12-Caminhoes de Apoio Utilitario;Caminhao;540000.00;16887000-WX
+BL-2164;Group13-Caminhoes Pick up Corporativos;Caminhao;890000.00;16887000-WX
+AS-2140;Group14-Caminhoes SUV de Apoio;Caminhao;210000.00;17998000-YZ
+BL-2165;Group15-Caminhoes de Apoio Motorizado (Motocicletas);Caminhao;340000.00;17998000-YZ
+AT-2141;Group16-Caminhoes de Apoio Quadriciclos;Caminhao;97000.00;18119000-AB
+BL-2166;Group17-Caminhoes de Apoio Operacional;Caminhao;480000.00;18119000-AB
+AU-2142;Group18-Caminhoes Ambulancia de Frota;Caminhao;860000.00;19221000-BB
+BL-2167;Group19-Caminhoes Vans de Transporte;Caminhao;540000.00;19221000-BB
+AV-2143;Group20-Caminhoes Onibus Urbanos;Caminhao;325000.00;20332000-CA
+BL-2168;Group21-Caminhoes Onibus Rodoviarios;Caminhao;210000.00;20332000-CA
+AW-2144;Group22-Caminhoes Micro-onibus;Caminhao;455000.00;21443000-DD
+BL-2169;Group23-Caminhoes Tratores Agricolas;Caminhao;97000.00;21443000-DD
+AD-2125;Group24-Caminhoes Colheitadeiras Agricolas;Caminhao;320000.00;22330000-BY
+AX-2145;Group25-Caminhoes Plantadeiras Agricolas;Caminhao;525000.00;22554000-EE
+BL-2170;Group26-Caminhoes Pulverizadores Agricolas;Caminhao;860000.00;22554000-EE
+AY-2146;Group27-Caminhoes Arados Motorizados;Caminhao;185000.00;23665000-FD
+BL-2171;Group28-Caminhoes Carretas Agricolas;Caminhao;325000.00;23665000-FD
+AZ-2147;Group29-Caminhoes Enfardadeiras Agricolas;Caminhao;94000.00;24776000-GG
+BL-2172;Group30-Caminhoes Retroescavadeiras;Caminhao;455000.00;24776000-GG
+BA-2148;Group31-Caminhoes Escavadeiras Hidraulicas;Caminhao;880000.00;25887000-HH
+BL-2173;Group32-Caminhoes Pas Carregadeiras;Caminhao;525000.00;25887000-HH
+BB-2149;Group33-Caminhoes Motoniveladoras;Caminhao;315000.00;26998000-II
+BL-2174;Group34-Caminhoes Tratores de Esteira;Caminhao;185000.00;26998000-II
+BC-2150;Group35-Caminhoes Compactadores de Solo;Caminhao;465000.00;27119000-JJ
+BL-2175;Group36-Caminhoes Rolos Compressores;Caminhao;94000.00;27119000-JJ
+BD-2151;Group37-Caminhoes Perfuratrizes;Caminhao;515000.00;28221000-KK
+BL-2176;Group38-Caminhoes Minicarregadeiras;Caminhao;880000.00;28221000-KK
+BE-2152;Group39-Caminhoes Empilhadeiras Eletricas;Caminhao;195000.00;29332000-LL
+BL-2177;Group40-Caminhoes Empilhadeiras a Combustão;Caminhao;320000.00;29332000-LL
+BF-2153;Group41-Caminhoes Guindastes Hidraulicos;Caminhao;96000.00;30443000-MM
+BL-2178;Group42-Caminhoes Guindastes de Torre;Caminhao;470000.00;30443000-MM
+BG-2154;Group43-Caminhoes Plataformas Elevatorias;Caminhao;870000.00;31554000-NN
+BL-2179;Group44-Caminhoes Munck;Caminhao;530000.00;31554000-NN
+BH-2155;Group45-Caminhoes Porticos Rolantes;Caminhao;335000.00;32665000-BA
+BL-2180;Group46-Caminhoes Talhas Eletricas;Caminhao;190000.00;32665000-BA
+AE-2126;Group47-Caminhoes Pontes Rolantes;Caminhao;470000.00;33440000-CZ
+BI-2156;Group48-Caminhoes Fora de Estrada (Obras/Mineracao);Caminhao;475000.00;33776000-PP
+BL-2181;Group49-Caminhoes Escavadeiras de Mineracao;Caminhao;210000.00;33776000-PP
+BJ-2157;Group50-Caminhoes Perfuratrizes de Mineracao;Caminhao;535000.00;34887000-QQ
+BL-2182;Group51-Caminhoes Carregadeiras de Mineracao;Caminhao;97000.00;34887000-QQ
+BK-2158;Group52-Caminhoes Draglines de Mineracao;Caminhao;205000.00;35998000-RS
+BL-2183;Group53-Caminhoes Shovels Eletricas de Mineracao;Caminhao;860000.00;35998000-RS
+BA-2123;Group54-Caminhoes de Patrulha Interna;Caminhao;95000.00;36070000-AA
+BL-2159;Group55-Caminhoes de Inspecao Operacional;Caminhao;99000.00;36119000-ST
+BL-2184;Group56-Caminhoes de Servico Leve;Caminhao;470000.00;36119000-ST
+AF-2127;Group57-Caminhoes de Apoio a Obras;Caminhao;530000.00;44550000-DX
+AG-2128;Group58-Caminhoes de Transporte de Funcionarios;Caminhao;190000.00;55660000-EX
+AH-2129;Group59-Caminhoes Vans de Logistica;Caminhao;98000.00;66770000-FX
+BB-2224;Group60-Caminhoes de Apoio Operacional;Caminhao;180000.00;69070000-CX
+AI-2130;Group61-Caminhoes Administrativos de Frota;Caminhao;870000.00;77880000-GY
+AB-2122;Group62-Caminhoes Scooters Corporativas;Caminhao;520000.00;88090000-XA
+AJ-2131;Group63-Caminhoes MiniOnibus de Apoio;Caminhao;330000.00;88990000-HZ
+AA-2121;Group64-Caminhoes Blindados de Frota;Caminhao;450000.00;99090000-BX
+AK-2132;Group65-Caminhoes de Combate a Incendio;Caminhao;460000.00;99110000-IJ

@@ -1,0 +1,167 @@
+{
+	"info": {
+		"_postman_id": "f2674fd2-8e11-4269-8773-9e2580728da1",
+		"name": "api-claudio",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "47499071",
+		"_collection_link": "https://claudio-cavalcante-5087059.postman.co/workspace/claudio-cavalcante's-Workspace~919900c2-46c2-44ca-8e0f-b80c9edb5eab/collection/47499071-f2674fd2-8e11-4269-8773-9e2580728da1?action=share&source=collection_link&creator=47499071"
+	},
+	"item": [
+		{
+			"name": "assetcategory",
+			"item": [
+				{
+					"name": "obtainPutid",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/assetCategorys/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"assetCategorys",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "obtainList",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/assetCategorys",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"assetCategorys"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "include",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"assetName\": \"Scania P 55\",\n    \"acquisitionYear\": \"2025\",\n    \"acquisitionValue\": \"450000.00\",\n    \"assetCode\": \"909090AA\",\n    \"categoryName\": \"Leve\",\n    \"categoryCode\": 3002,\n    \"taxRate\": 22.35,\n    \"active\": true,\n    \"description\": \"Operacoes Cana de Acucar\",\n    \"address\": {\n        \"street\": \"Rua das Flores - entrada sul\",\n        \"number\": \"1501\",\n        \"zipcode\": \"29.1500-200\",\n        \"location\": \"Vila Velha-ES\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/assetCategorys",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"assetCategorys"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "change",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"assetName\": \"Scania PPD 55\",\n    \"acquisitionYear\": \"2022\",\n    \"assetCode\": \"909090AA\",\n    \"categoryName\": \"Leve\",\n    \"categoryCode\": 3002,\n    \"taxRate\": 12.35,\n    \"active\": true,\n    \"description\": \"Operacoes Cana de Acucar\",\n    \"address\": {\n        \"street\": \"Rua das Flores - entrada sul\",\n        \"number\": \"1501\",\n        \"zipcode\": \"29.1500-200\",\n        \"location\": \"Vila Velha-ES\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/assetCategorys/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"assetCategorys",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"assetName\": \"Scania PPD 55\",\n    \"acquisitionYear\": \"2022\",\n    \"assetCode\": \"909090AA\",\n    \"categoryName\": \"Leve\",\n    \"categoryCode\": 3002,\n    \"taxRate\": 12.35,\n    \"active\": true,\n    \"description\": \"Operacoes Cana de Acucar\",\n    \"address\": {\n        \"street\": \"Rua das Flores - entrada sul\",\n        \"number\": \"1501\",\n        \"zipcode\": \"29.1500-200\",\n        \"location\": \"Vila Velha-ES\"\n    }\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/assetCategorys/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"assetCategorys",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deactivate",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"assetName\": \"Scania P 55\",\n    \"acquisitionYear\": \"2025\",\n    \"acquisitionValue\": \"450000.00\",\n    \"assetCode\": \"909090AA\",\n    \"categoryName\": \"Leve\",\n    \"categoryCode\": 3002,\n    \"taxRate\": 22.35,\n    \"active\": true,\n    \"description\": \"Operacoes Cana de Acucar\",\n    \"address\": {\n        \"street\": \"Rua das Flores - entrada sul\",\n        \"number\": \"1501\",\n        \"zipcode\": \"29.1500-200\",\n        \"location\": \"Vila Velha-ES\"\n    }\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/assetCategorys/4/deactivate",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"assetCategorys",
+								"4",
+								"deactivate"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

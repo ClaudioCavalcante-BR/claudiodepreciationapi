@@ -1,0 +1,45 @@
+package br.edu.infnet.claudiodepreciationapi.controller;
+
+import java.util.List;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import br.edu.infnet.claudiodepreciationapi.model.clients.ParallelumFeignClient;
+import br.edu.infnet.claudiodepreciationapi.model.domain.ParallelumBrand;
+import br.edu.infnet.claudiodepreciationapi.model.domain.ParallelumModelsResponse;
+import br.edu.infnet.claudiodepreciationapi.model.domain.ParallelumYear;
+
+@RestController
+@RequestMapping("/fipe")
+public class TruckDiscoveryController {
+	
+	
+	private final ParallelumFeignClient parallelumFeignClient;
+	
+	public TruckDiscoveryController (ParallelumFeignClient parallelumFeignClient) {
+		this.parallelumFeignClient = parallelumFeignClient;
+	}
+	
+	
+	// Para testar listas (http://localhost:8080/fipe/marcas)
+	@GetMapping("/marcas")
+	public List<ParallelumBrand> listarMarcas(){
+		return parallelumFeignClient.obterMarcas();
+	}
+	
+	// Para testar modelos de uma marca (http://localhost:8080/fipe/marcas/109/modelos)
+	@GetMapping("/marcas/{marcaId}/modelos")
+	public ParallelumModelsResponse listarModelos(@PathVariable Integer marcaId) {
+		return parallelumFeignClient.obterModelos(marcaId);
+	}
+	// Para testar ano, com base na marca, modelo (http://localhost:8080/fipe/marcas/109/modelos/9674/anos)
+	@GetMapping("/marcas/{marcaId}/modelos/{modeloId}/anos")
+	public List<ParallelumYear> listarAnos(@PathVariable Integer marcaId,
+	                                       @PathVariable Integer modeloId) {
+	    return parallelumFeignClient.obterAnos(marcaId, modeloId);
+	}
+	
+}
