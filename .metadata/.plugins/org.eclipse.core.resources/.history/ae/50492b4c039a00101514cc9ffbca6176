@@ -1,0 +1,30 @@
+package br.edu.infnet.claudiodepreciationapi.model.service;
+
+import org.springframework.stereotype.Service;
+
+import br.edu.infnet.claudiodepreciationapi.model.domain.TruckQueryResult;
+
+@Service
+public class TruckFipeService {
+	
+
+	public TruckQueryResult obterCodigoFipePorMarca(String marca) {
+		
+		TruckQueryResult truckQueryResult = new TruckQueryResult();
+		
+		truckQueryResult.setMarca(marca);
+		truckQueryResult.setCodigoFipe(null);
+		truckQueryResult.setModelo(null);
+		truckQueryResult.setAnoModelo(null);
+		truckQueryResult.setValor(null);
+		truckQueryResult.setDataConsulta(null);
+		truckQueryResult.setOutrasMarcas(null);
+		
+		
+		return truckQueryResult;
+		
+	}
+	
+	
+
+}

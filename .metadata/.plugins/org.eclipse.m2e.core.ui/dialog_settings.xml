@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="MavenProjectImportWizardPage">
+		<list key="rootDirectory">
+			<item value="/Users/claudioalmeida/dev/Desenvolvimento_Avancado_com_Spring_e_Microservicos_25E3-25E3/claudiodepreciationapi"/>
+			<item value="/Users/claudioalmeida/dev_repositorio/versao_15_Feature_01_TDD_final/claudiodepreciationapi"/>
+			<item value="/Users/claudioalmeida/dev/Desenvolvimento_Avancado_com_Spring_e_Microservicos_25E3-25E3/claudiodepreciationapi/docs/img"/>
+			<item value="/Users/claudioalmeida/dev/Desenvolvimento_Avancado_com_Spring_e_Microservicos_25E3-25E3/claudioapi"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="org.eclipse.m2e.core.pom.overview">
+		<list key="ciManagementUrl">
+		</list>
+		<list key="ciManagementSystem">
+		</list>
+		<list key="issueManagementSystem">
+		</list>
+		<list key="issueManagementUrl">
+		</list>
+	</section>
+	<section name="org.eclipse.m2e.core.pom.dependencies">
+	</section>
+</section>

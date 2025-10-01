@@ -1,0 +1,17 @@
+package br.edu.infnet.claudiodepreciationapi.model.domain;
+
+import java.util.List;
+
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+/** espelha o JSON da Parallelum:
+ * { "modelos": [ {codigo,nome}... ], "anos": [ {codigo,nome}... ] }
+ */
+
+
+public class ParallelumModelsResponse {
+	
+	private List<ParallelumModel> modelos;
+	private List<ParallelumYear> anos; // Jä existe no projeto - ParallelumYear
+
+}

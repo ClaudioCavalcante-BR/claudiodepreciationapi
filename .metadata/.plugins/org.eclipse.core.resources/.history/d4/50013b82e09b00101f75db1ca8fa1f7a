@@ -1,0 +1,110 @@
+package br.edu.infnet.claudiodepreciationapi.model.service;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
+import org.springframework.stereotype.Service;
+
+import br.edu.infnet.claudiodepreciationapi.model.clients.BrasilApiFipeFeignClient;
+import br.edu.infnet.claudiodepreciationapi.model.clients.ParallelumFeignClient;
+import br.edu.infnet.claudiodepreciationapi.model.domain.BrasilApiFipePrice;
+import br.edu.infnet.claudiodepreciationapi.model.domain.ParallelumTruckDetail;
+import br.edu.infnet.claudiodepreciationapi.model.domain.ParallelumYear;
+import br.edu.infnet.claudiodepreciationapi.model.domain.TruckQueryResult;
+
+@Service
+public class TruckFipeService {
+	
+	private final ParallelumFeignClient parallelumClient;
+    private final BrasilApiFipeFeignClient brasilApiClient;
+
+    public TruckFipeService(ParallelumFeignClient parallelumClient, BrasilApiFipeFeignClient brasilApiClient) {
+        this.parallelumClient = parallelumClient;
+        this.brasilApiClient = brasilApiClient;
+    }
+
+    /**
+     * ----- a seguir Desenho da orquestracao ------
+     * 1) Parallelum: detalhe do ano (=> CodigoFipe + metadados)
+     * 2) BrasilAPI: preço por CodigoFipe (fallback: Parallelum)
+     * 3) Parallelum: outros anos do mesmo modelo (preenche TruckOption)
+     * 4) Monta e retorna TruckQueryResult
+     */
+    public TruckQueryResult consultarPorMarcaModeloAno(Integer marcaId, Integer modeloId, String anoCodigo) {
+        validarEntrada(marcaId, modeloId, anoCodigo);
+
+        // 1) Detalhe na Parallelum
+        ParallelumTruckDetail det = parallelumClient.obterDetalhe(marcaId, modeloId, anoCodigo);
+        if (det == null || det.getCodigoFipe() == null) {
+            throw new IllegalStateException("Não foi possível obter CodigoFipe na Parallelum.");
+        }
+        
+        // 2) Preço: tenta BrasilAPI, senão usa Parallelum
+        String valorFinal;
+        String dataConsulta;
+
+        List<BrasilApiFipePrice> precos = null;
+        try {
+            precos = brasilApiClient.consultarPreco(det.getCodigoFipe());
+        } catch (Exception ignored) { }
+
+        if (precos != null && !precos.isEmpty() && precos.get(0) != null && precos.get(0).valor != null) {
+            BrasilApiFipePrice price = precos.get(0);
+            valorFinal = price.valor;
+            dataConsulta = (price.mesReferencia != null ? price.mesReferencia : LocalDate.now().toString());
+        } else {
+            valorFinal = det.getValor();
+            dataConsulta = (det.getMesReferencia() != null ? det.getMesReferencia() : LocalDate.now().toString());
+        }
+
+        // 3) Outras opções (anos do mesmo modelo) -> preencher sua TruckOption interna
+        List<TruckQueryResult.TruckOption> alternativas = new ArrayList<>();
+        try {
+            List<ParallelumYear> anos = parallelumClient.obterAnos(marcaId, modeloId);
+            if (anos != null) {
+                anos.stream()
+                    .filter(Objects::nonNull)
+                    .map(y -> y.codigo)
+                    .filter(Objects::nonNull)
+                    .distinct()
+                    .limit(5) // evita excesso de chamadas
+                    .forEach(codAno -> {
+                        try {
+                            ParallelumTruckDetail detail = parallelumClient.obterDetalhe(marcaId, modeloId, codAno);
+                            if (detail != null && detail.getCodigoFipe() != null) {
+                                TruckQueryResult.TruckOption option = new TruckQueryResult.TruckOption();
+                                option.setCodigoFipe(detail.getCodigoFipe());
+                                option.setMarca(detail.getMarca());
+                                option.setModelo(detail.getModelo());
+                                option.setAnoModelo(detail.getAnoModelo());
+                                alternativas.add(option);
+                            }
+                        } catch (Exception ignored) { }
+                    });
+            }
+        } catch (Exception ignored) { }
+
+        // 4) Monta resultado no seu formato
+        TruckQueryResult result = new TruckQueryResult();
+        result.setCodigoFipe(det.getCodigoFipe());
+        result.setMarca(det.getMarca());
+        result.setModelo(det.getModelo());
+        result.setAnoModelo(det.getAnoModelo());
+        result.setValor(valorFinal);
+        result.setDataConsulta(dataConsulta);
+        result.setOutrasMarcas(alternativas);
+        return result;
+    }
+    
+    // Refletindo excessoes para Marca, Modelo e Codigo, lembrando que ano com final 3 somente diesel
+    private void validarEntrada(Integer marcaId, Integer modeloId, String anoCodigo) {
+        if (marcaId == null || marcaId <= 0) throw new IllegalArgumentException("marcaId inválido.");
+        if (modeloId == null || modeloId <= 0) throw new IllegalArgumentException("modeloId inválido.");
+        if (anoCodigo == null || !anoCodigo.matches("\\d{4}-\\d")) {
+            throw new IllegalArgumentException("anoCodigo deve seguir o padrão 'YYYY-3' (ex.: '2023-3').");
+        }
+    }
+
+}

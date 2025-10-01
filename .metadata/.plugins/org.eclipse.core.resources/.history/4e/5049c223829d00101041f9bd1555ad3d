@@ -1,0 +1,113 @@
+package br.edu.infnet.claudioapi.model.dto;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+public class TruckQueryResult {
+	
+	private String codigoFipe;
+    private String marca;
+    private String modelo;
+    private Integer anoModelo;
+    private String combustivel;
+    private String siglaCombustivel;
+    private String mesReferencia;
+    private String valor;
+    private String dataConsulta;
+    
+
+    // Fallback de mesReferencia no JSON de saída: se vier null, usa dataConsulta
+    @JsonProperty("mesReferencia")
+    public String getMesReferenciaOrDataConsulta() {
+        return (mesReferencia != null && !mesReferencia.isBlank())
+                ? mesReferencia
+                : dataConsulta;
+    }
+    
+    @JsonIgnore
+    public void applyDefaults() {
+        if (isBlank(combustivel))      combustivel = "Diesel";
+        if (isBlank(siglaCombustivel)) siglaCombustivel = "D";
+        // mesReferencia já tem fallback via getter
+    }
+
+    // ---- Helpers ----
+    private boolean isBlank(String strike) {
+        return strike == null || strike.isBlank();
+    }
+
+	public String getCodigoFipe() {
+		return codigoFipe;
+	}
+
+	public void setCodigoFipe(String codigoFipe) {
+		this.codigoFipe = codigoFipe;
+	}
+
+	public String getMarca() {
+		return marca;
+	}
+
+	public void setMarca(String marca) {
+		this.marca = marca;
+	}
+
+	public String getModelo() {
+		return modelo;
+	}
+
+	public void setModelo(String modelo) {
+		this.modelo = modelo;
+	}
+
+	public Integer getAnoModelo() {
+		return anoModelo;
+	}
+
+	public void setAnoModelo(Integer anoModelo) {
+		this.anoModelo = anoModelo;
+	}
+
+	public String getCombustivel() {
+		return combustivel;
+	}
+
+	public void setCombustivel(String combustivel) {
+		this.combustivel = combustivel;
+	}
+
+	public String getSiglaCombustivel() {
+		return siglaCombustivel;
+	}
+
+	public void setSiglaCombustivel(String siglaCombustivel) {
+		this.siglaCombustivel = siglaCombustivel;
+	}
+
+	public String getMesReferencia() {
+		return mesReferencia;
+	}
+
+	public void setMesReferencia(String mesReferencia) {
+		this.mesReferencia = mesReferencia;
+	}
+
+	public String getValor() {
+		return valor;
+	}
+
+	public void setValor(String valor) {
+		this.valor = valor;
+	}
+
+	public String getDataConsulta() {
+		return dataConsulta;
+	}
+
+	public void setDataConsulta(String dataConsulta) {
+		this.dataConsulta = dataConsulta;
+	}
+
+
+
+}

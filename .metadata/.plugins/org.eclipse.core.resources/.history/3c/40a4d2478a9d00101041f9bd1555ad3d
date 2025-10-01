@@ -1,0 +1,22 @@
+package br.edu.infnet.claudioapi.model.clients;
+
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import br.edu.infnet.claudioapi.model.dto.TruckQueryResult;
+
+@FeignClient(name = "claudiodepreciationapi", url = "${claudiodepreciationapi.url}")
+public interface TruckFeignClient {
+	
+	
+	// Chama o endpoint do seu serviço orquestrador (que roda na 8080)
+    // GET http://localhost:8080/fipe/trucks/{marcaId}/{modeloId}/{anoCodigo}
+    @GetMapping("/fipe/trucks/{marcaId}/{modeloId}/{anoCodigo}")
+    TruckQueryResult consultarTruck(
+            @PathVariable Integer marcaId,
+            @PathVariable Integer modeloId,
+            @PathVariable String anoCodigo // ex.: "2023-3"
+    );
+
+}

@@ -1,0 +1,8 @@
+package br.edu.infnet.claudiodepreciationapi.model.domain;
+
+public class ParallelumModelsResponse {
+	
+	private List<ParallelumModel> modelos;
+	
+
+}

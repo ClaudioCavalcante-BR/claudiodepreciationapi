@@ -1,0 +1,5 @@
+package br.edu.infnet.claudioapi.model.clients;
+
+public interface DepreciationFeignClient {
+
+}

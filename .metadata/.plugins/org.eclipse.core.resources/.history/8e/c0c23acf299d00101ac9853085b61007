@@ -1,0 +1,71 @@
+package br.edu.infnet.claudiodepreciationapi.model.domain;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class BrasilApiFipePrice {
+	
+    public Integer tipoVeiculo;
+    public String valor;          // Valor em R$ (string formatada "R$ 123.456,00")
+    public String marca;
+    public String modelo;			// Nome do modelo
+    public Integer anoModelo;		 // Ano do modelo
+    public String combustivel;
+    public String codigoFipe;
+    public String mesReferencia;  // "setembro de 2025"
+    
+    //Retorno da BrasilAPI (preço pelo Código FIPE).
+        
+	public String getValor() {
+		return valor;
+	}
+	public void setValor(String valor) {
+		this.valor = valor;
+	}
+
+	public String getModelo() {
+		return modelo;
+	}
+	public void setModelo(String modelo) {
+		this.modelo = modelo;
+	}
+	public Integer getAnoModelo() {
+		return anoModelo;
+	}
+	public void setAnoModelo(Integer anoModelo) {
+		this.anoModelo = anoModelo;
+	}
+	public Integer getTipoVeiculo() {
+		return tipoVeiculo;
+	}
+	public void setTipoVeiculo(Integer tipoVeiculo) {
+		this.tipoVeiculo = tipoVeiculo;
+	}
+	public String getMarca() {
+		return marca;
+	}
+	public void setMarca(String marca) {
+		this.marca = marca;
+	}
+	public String getCombustivel() {
+		return combustivel;
+	}
+	public void setCombustivel(String combustivel) {
+		this.combustivel = combustivel;
+	}
+	public String getCodigoFipe() {
+		return codigoFipe;
+	}
+	public void setCodigoFipe(String codigoFipe) {
+		this.codigoFipe = codigoFipe;
+	}
+	public String getMesReferencia() {
+		return mesReferencia;
+	}
+	public void setMesReferencia(String mesReferencia) {
+		this.mesReferencia = mesReferencia;
+	}
+	
+   
+}

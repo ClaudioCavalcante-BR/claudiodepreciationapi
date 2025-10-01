@@ -1,0 +1,15 @@
+package br.edu.infnet.claudioapi.model.clients;
+
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@FeignClient(name = "claudiodepreciationapi", url = "${claudiodepreciationapi.url}")
+public interface DepreciationFeignClient {
+	
+	
+	// nosso endpoint
+	// /fipe/trucks/{marcaId}/{modeloId}/{anoCodigo}
+	
+	//@GetMapping("/{marcaId}/{modeloId}/{anoCodigo}");
+
+}

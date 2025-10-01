@@ -1,0 +1,94 @@
+package br.edu.infnet.claudiodepreciationapi.model.domain;
+
+import java.util.List;
+
+public class TruckEnrichedResponse {
+	
+	private String codigoFipe;      // ex.: "509330-9" (identificador único na FIPE)
+    private String marca;           // ex.: "MERCEDES-BENZ"
+    private String modelo;          // ex.: "AROCS 4851 K 8x4 (diesel)(E5)"
+    private Integer anoModelo;      // ex.: 2023
+    private String valor;           // ex.: "R$ 985.854,00" (pode vir da BrasilAPI ou Parallelum)
+    private String dataConsulta;    // ex.: "2025-09-23" (BrasilAPI) ou null
+    private List<TruckOption> outrasMarcas;
+    
+    
+    public static class TruckOption {
+        private String codigoFipe;
+        private String marca;
+        private String modelo;
+        private Integer anoModelo;
+        
+		public String getCodigoFipe() {
+			return codigoFipe;
+		}
+		public void setCodigoFipe(String codigoFipe) {
+			this.codigoFipe = codigoFipe;
+		}
+		public String getMarca() {
+			return marca;
+		}
+		public void setMarca(String marca) {
+			this.marca = marca;
+		}
+		public String getModelo() {
+			return modelo;
+		}
+		public void setModelo(String modelo) {
+			this.modelo = modelo;
+		}
+		public Integer getAnoModelo() {
+			return anoModelo;
+		}
+		public void setAnoModelo(Integer anoModelo) {
+			this.anoModelo = anoModelo;
+		}
+        
+    }
+    
+    
+    
+	public String getCodigoFipe() {
+		return codigoFipe;
+	}
+	public void setCodigoFipe(String codigoFipe) {
+		this.codigoFipe = codigoFipe;
+	}
+	public String getMarca() {
+		return marca;
+	}
+	public void setMarca(String marca) {
+		this.marca = marca;
+	}
+	public String getModelo() {
+		return modelo;
+	}
+	public void setModelo(String modelo) {
+		this.modelo = modelo;
+	}
+	public Integer getAnoModelo() {
+		return anoModelo;
+	}
+	public void setAnoModelo(Integer anoModelo) {
+		this.anoModelo = anoModelo;
+	}
+	public String getValor() {
+		return valor;
+	}
+	public void setValor(String valor) {
+		this.valor = valor;
+	}
+	public String getDataConsulta() {
+		return dataConsulta;
+	}
+	public void setDataConsulta(String dataConsulta) {
+		this.dataConsulta = dataConsulta;
+	}
+	public List<TruckOption> getOutrasMarcas() {
+		return outrasMarcas;
+	}
+	public void setOutrasMarcas(List<TruckOption> outrasMarcas) {
+		this.outrasMarcas = outrasMarcas;
+	}
+
+}

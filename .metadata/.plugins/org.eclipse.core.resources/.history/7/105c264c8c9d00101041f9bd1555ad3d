@@ -1,0 +1,27 @@
+package br.edu.infnet.claudioapi;
+
+import org.springframework.boot.ApplicationArguments;
+import org.springframework.boot.ApplicationRunner;
+import org.springframework.stereotype.Component;
+
+import br.edu.infnet.claudioapi.model.clients.TruckFeignClient;
+
+@Component
+public class TruckLoader implements ApplicationRunner {
+	
+	private final TruckFeignClient truckFeignClient;
+	
+	public TruckLoader(TruckFeignClient truckFeignClient) {
+		this.truckFeignClient = truckFeignClient;
+	}
+	
+	@Override
+	public void run(ApplicationArguments args) throws Exception {
+		
+		System.out.println("Apresentacao de dados do meu equipamento");
+		
+		truckFeignClient.obterConsultarTruck
+		
+	}
+
+}

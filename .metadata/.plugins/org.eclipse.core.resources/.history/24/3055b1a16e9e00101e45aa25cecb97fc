@@ -1,0 +1,22 @@
+package br.edu.infnet.claudioapi.model.service;
+
+import org.springframework.stereotype.Service;
+
+import br.edu.infnet.claudioapi.model.clients.TruckFeignClient;
+import br.edu.infnet.claudioapi.model.dto.TruckQueryResult;
+
+
+@Service
+public class TruckGatewayService {
+	
+	private final TruckFeignClient truckFeignClient;
+
+    public TruckGatewayService(TruckFeignClient truckFeignClient) {
+        this.truckFeignClient = truckFeignClient;
+    }
+
+    public TruckQueryResult consultar(Integer marcaId, Integer modeloId, String anoCodigo) {
+        return truckFeignClient.obterConsultarTruck(marcaId, modeloId, anoCodigo);
+        
+    }
+}
